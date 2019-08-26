@@ -19,3 +19,4 @@ There are two main modes for selection/editing, **Vertex** and **Face**. These c
 - Undo/Redo (buttons or [Ctrl+Z]/[Ctrl+Y])
 - Insert mesh primitives (Dropdown at top-right)
 - Save/Load to or from an OBJ file
+- Toggle on/off the visibility of Edges, Faces and Points (when Points visibility is off, points near the cursor will still be visible).
