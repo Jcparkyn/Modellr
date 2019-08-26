@@ -29,7 +29,7 @@ public class CameraMove : MonoBehaviour {
 	void Update () {
         Vector3 mousePosDelta = mousePosPrev - Input.mousePosition;
         mousePosPrev = Input.mousePosition;
-        if (Input.GetMouseButton(2)) // Middlemouse 
+        if (Input.GetMouseButton(2) || Input.GetMouseButton(1)) // Middlemouse or right click drag
         {
             if (Input.GetKey(KeyCode.LeftShift))
             {

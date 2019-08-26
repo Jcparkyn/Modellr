@@ -17,7 +17,7 @@ public class MeshObject
     public List<Face> faces;
     //edges are stored as a Dictionary instead of a HashSet due to the need for TryGetValue(T key).
     //HashSet only supports this method in later .NET versions than what can be used by Unity.
-    public Dictionary<Edge, Edge> edges = new Dictionary<Edge, Edge> { };
+    public Dictionary<Edge, Edge> edges = new Dictionary<Edge, Edge>();
 
     //The components used by Unity for mesh rendering
     public MeshFilter meshFilter { get; }
@@ -242,9 +242,9 @@ public class MeshObject
 
     //This method makes the topological changes required to begin a vertex extrusion.
     //Some vertex extrusion functionality is missing and could be improved.
-    public void BeginExtrude(HashSet<Vertex> verts_)
+    public void BeginExtrude(HashSet<Vertex> vertsToExtrude)
     {
-        HashSet<Vertex> vertsToExtrude = new HashSet<Vertex> (verts_);
+        //HashSet<Vertex> vertsToExtrude = new HashSet<Vertex> (verts_);
         //HashSet<Edge> culledEdges = new HashSet<Edge> ();
         Dictionary<Vertex, Vertex> vertPairs = new Dictionary<Vertex, Vertex> { };
         DeselectAll();

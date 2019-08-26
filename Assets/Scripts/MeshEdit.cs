@@ -27,11 +27,7 @@ public class MeshEdit : MonoBehaviour
     public BoxSelection boxSelect; //Reference to BoxSelection object
 
     //References to UI objects:
-    public RectTransform boxSelectGuides;
-    public Dropdown meshInsertUI;
-    public Image BUTTON_SELMODE_VERT;
-    public Image BUTTON_SELMODE_FACE;
-    public InputField FIELD_SAVEPATH;
+    public UIController ui;
 
     //Styles used for rendering vertices:
     public GUIStyle guiVertUnsel;
@@ -61,10 +57,10 @@ public class MeshEdit : MonoBehaviour
     {
         //Handle Box Selection Input:
         bool boxSelectArmedFinal = Input.GetKey(KeyCode.LeftAlt) || boxSelectArmed;
-        boxSelectGuides.gameObject.SetActive(boxSelectArmedFinal);
+        ui.RECT_BOXSELECT.gameObject.SetActive(boxSelectArmedFinal);
         if (boxSelectArmedFinal)
         {
-            boxSelectGuides.position = Input.mousePosition;
+            ui.RECT_BOXSELECT.position = Input.mousePosition;
         }
         if (Input.GetMouseButtonDown(0) && !boxSelect.isSelecting && boxSelectArmedFinal)
         {
@@ -76,59 +72,47 @@ public class MeshEdit : MonoBehaviour
             boxSelect.EndSelection();
         }
 
-        //if (!FIELD_SAVEPATH.isFocused) //Check that savepath textbox isn't active before checking for keystrokes
-        //{
-            //Handle Keyboard Inputs:
-            if (Input.GetButtonDown("Select All"))
-            {
-                if (selectionMode == 0)
-                {
-                    selMesh.ToggleAllVertSelection();
-                }
-                else
-                {
-                    selMesh.ToggleAllFaceSelection();
-                }
 
-                transformGizmo.OnSelectionChange();
-            }
-            else if (Input.GetButtonDown("Extrude") && selMesh.GetSelectedPoints().Any())
+        if (Input.GetButtonDown("Select All"))
+        {
+            ToggleSelectAll();
+        }
+        else if (Input.GetButtonDown("Extrude") && selMesh.GetSelectedPoints().Any())
+        {
+            if (selectionMode == 0)
             {
-                if (selectionMode == 0)
-                {
-                    selMesh.BeginExtrude(selMesh.selVerts);
-                }
-                else
-                {
-                    selMesh.BeginExtrude(selMesh.selFaces);
-                }
-                transformGizmo.SetPositionAuto();
+                selMesh.BeginExtrude(selMesh.selVerts);
             }
-            else if (Input.GetKeyDown(KeyCode.Z) && Input.GetKey(KeyCode.LeftControl))
+            else
             {
-                UndoEdit();
+                selMesh.BeginExtrude(selMesh.selFaces);
             }
-            else if (Input.GetKeyDown(KeyCode.Y) && Input.GetKey(KeyCode.LeftControl))
-            {
-                RedoEdit();
-            }
-            else if (Input.GetButtonDown("Delete"))
-            {
-                DeleteSelected();
-            }
-            else if (Input.GetButtonDown("Fill"))
-            {
-                TryCreateFace();
-            }
-            else if (Input.GetButtonDown("Select Linked"))
-            {
-                BeginSelectLinked();
-            }
-            else if (Input.GetKeyDown(KeyCode.Home))
-            {
-                FocusOnSelected();
-            }
-        //}
+            transformGizmo.SetPositionAuto();
+        }
+        else if (Input.GetKeyDown(KeyCode.Z) && Input.GetKey(KeyCode.LeftControl))
+        {
+            UndoEdit();
+        }
+        else if (Input.GetKeyDown(KeyCode.Y) && Input.GetKey(KeyCode.LeftControl))
+        {
+            RedoEdit();
+        }
+        else if (Input.GetButtonDown("Delete"))
+        {
+            DeleteSelected();
+        }
+        else if (Input.GetButtonDown("Fill"))
+        {
+            TryCreateFace();
+        }
+        else if (Input.GetButtonDown("Select Linked"))
+        {
+            BeginSelectLinked();
+        }
+        else if (Input.GetKeyDown(KeyCode.Home))
+        {
+            FocusOnSelected();
+        }
 
     }
 
@@ -221,6 +205,19 @@ public class MeshEdit : MonoBehaviour
     //The following methods handle actions for mesh editing and similar
     //operations. These are called by UI buttons and keyboard input in the
     //"Update" method.
+    public void ToggleSelectAll()
+    {
+        if (selectionMode == 0)
+        {
+            selMesh.ToggleAllVertSelection();
+        }
+        else
+        {
+            selMesh.ToggleAllFaceSelection();
+        }
+
+        transformGizmo.OnSelectionChange();
+    }
 
     public void TryCreateFace()
     {
@@ -263,10 +260,16 @@ public class MeshEdit : MonoBehaviour
         {
             return;
         }
-        Color colorInactive = new Color(1, 1, 1, 0.4f);
-        Color colorActive = new Color(1, 1, 1, 1);
-        BUTTON_SELMODE_FACE.color = mode == 0 ? colorInactive : colorActive;
-        BUTTON_SELMODE_VERT.color = mode == 1 ? colorInactive : colorActive;
+        //Set gizmo mode back to translate if switching to vert selection mode.
+        if (mode == 0 && transformGizmo.gizmoMode == TransformGizmo.GizmoMode.extrude)
+        {
+            //transformGizmo.SetGizmoMode((int)TransformGizmo.GizmoMode.translate);
+            ui.DROPDOWN_GIZMOMODE.value = (int)TransformGizmo.GizmoMode.translate;
+        }
+        //Color colorInactive = new Color(1, 1, 1, 0.4f);
+        //Color colorActive = new Color(1, 1, 1, 1);
+        //ui.BUTTON_SELMODE_FACE.color = mode == 0 ? colorInactive : colorActive;
+        //ui.BUTTON_SELMODE_VERT.color = mode == 1 ? colorInactive : colorActive;
         selectionMode = mode;
         transformGizmo.SetPositionAuto();
     }

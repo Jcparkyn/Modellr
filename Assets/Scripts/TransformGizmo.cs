@@ -19,18 +19,20 @@ public class TransformGizmo : MonoBehaviour {
     bool isActive = false;
     Ray axisRay = new Ray();
 
-    public enum GizmoMode { translate, rotate, scale, extrude };
-    GizmoMode gizmoMode = GizmoMode.translate;
+    public enum GizmoMode : int { translate, rotate, scale, extrude };
+    public GizmoMode gizmoMode = GizmoMode.translate;
 
     public GameObject translateRoot;
     public GameObject rotateRoot;
     public GameObject scaleRoot;
     public GameObject extrudeRoot;
 
-    public Image BUTTON_TRANSLATE;
-    public Image BUTTON_ROTATE;
-    public Image BUTTON_SCALE;
-    public Image BUTTON_EXTRUDE;
+    public UIController ui;
+
+    //public Image BUTTON_TRANSLATE;
+    //public Image BUTTON_ROTATE;
+    //public Image BUTTON_SCALE;
+    //public Image BUTTON_EXTRUDE;
 
     void Update() {
         //Debug.DrawRay(Vector3.zero, Vector3.up*10);
@@ -227,13 +229,18 @@ public class TransformGizmo : MonoBehaviour {
                 break;
             case 3:
                 gizmoMode = GizmoMode.extrude;
-                MeshEdit.selectionMode = 1;
+                //Set selection mode to face, so that extrude tool can be used.
+                if(MeshEdit.selectionMode == 0)
+                {
+                    ui.DROPDOWN_SELMODE.value = 1;
+                }
                 SetExtrudeAngle();
                 break;
             default:
                 Debug.LogError("Cannot set gizmo mode to " + val + ". Must be between 0 and 3"); break;
         }
         SetGizmoStates(gizmoMode);
+        SetPositionAuto();
     }
 
     private void SetGizmoStates(GizmoMode mode)
@@ -242,16 +249,16 @@ public class TransformGizmo : MonoBehaviour {
         Color colorActive = new Color(1, 1, 1, 1);
 
         translateRoot.SetActive(mode == GizmoMode.translate);
-        BUTTON_TRANSLATE.color = mode == GizmoMode.translate ? colorActive : colorInactive;
+        //BUTTON_TRANSLATE.color = mode == GizmoMode.translate ? colorActive : colorInactive;
 
         rotateRoot.SetActive(mode == GizmoMode.rotate);
-        BUTTON_ROTATE.color = mode == GizmoMode.rotate ? colorActive : colorInactive;
+        //BUTTON_ROTATE.color = mode == GizmoMode.rotate ? colorActive : colorInactive;
 
         scaleRoot.SetActive(mode == GizmoMode.scale);
-        BUTTON_SCALE.color = mode == GizmoMode.scale ? colorActive : colorInactive;
+        //BUTTON_SCALE.color = mode == GizmoMode.scale ? colorActive : colorInactive;
 
         extrudeRoot.SetActive(mode == GizmoMode.extrude);
-        BUTTON_EXTRUDE.color = mode == GizmoMode.extrude ? colorActive : colorInactive;
+        //BUTTON_EXTRUDE.color = mode == GizmoMode.extrude ? colorActive : colorInactive;
     }
 
     float GetMouseAngleFromGizmoRelative()
