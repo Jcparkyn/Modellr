@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BoxSelection" Collapsed="true">
+    <Position X="15" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQABIAAACAAAkAAAAAAAACAEBACAAAAAAAAAAAAgAI=</HashCode>
+      <FileName>Assets\Scripts\BoxSelection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CameraMove" Collapsed="true">
+    <Position X="15" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQgBBAAECAACEAAAAAAAAIACAAAEAAAAAAAYAAIAAA=</HashCode>
+      <FileName>Assets\Scripts\CameraMove.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DefaultMeshes" Collapsed="true">
+    <Position X="15" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAQAAAAAAAgAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\DefaultMeshes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DrawEdges" Collapsed="true">
+    <Position X="15" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAgAAIAAAAAAAAAAAIIAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\DrawEdges.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Edge">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAUgAAAAAECAAAAAIAAAgAAAAAAABA=</HashCode>
+      <FileName>Assets\Scripts\Edge.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="vert1" />
+      <Field Name="vert2" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Face" BaseTypeListCollapsed="true">
+    <Position X="6.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAACBEAAAAAIgIAAAAAAAAABAAAgAQAAA=</HashCode>
+      <FileName>Assets\Scripts\Face.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="parent" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MathX" Collapsed="true">
+    <Position X="15" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAEAAAAAAAAAAAIAAAAAAAACAAA=</HashCode>
+      <FileName>Assets\Scripts\MathX.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MeshEdit">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>IAUAgBYAACRAA1AAALFAAABAIAQghQEAAADAAkIAAAA=</HashCode>
+      <FileName>Assets\Scripts\MeshEdit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MeshInsertDropdown" Collapsed="true">
+    <Position X="15" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MeshInsertDropdown.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MeshObject">
+    <Position X="2.75" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>hAECBAIAAOCAIACEAAADAEAQBggQBAEAAAABAICABgI=</HashCode>
+      <FileName>Assets\Scripts\MeshObject.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Edge" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SaveLoad" Collapsed="true">
+    <Position X="15" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\SaveLoad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransformGizmo" Collapsed="true">
+    <Position X="15" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hAQAAAAECCQAgACBAIAAMBAIQAAIAiAgAAAQCgASCIA=</HashCode>
+      <FileName>Assets\Scripts\TransformGizmo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UndoStack&lt;T&gt;" Collapsed="true">
+    <Position X="15" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAQAEAAoAQAAACgAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UndoStack.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Vertex" BaseTypeListCollapsed="true">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAABUAAAAAIECACAAAAAAAAAAAgAAABA=</HashCode>
+      <FileName>Assets\Scripts\Vertex.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="parent" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ExtensionMethods.ExtensionMethods" Collapsed="true">
+    <Position X="15" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAMAAEAAAAACBAAAAIAAECAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\ExtensionMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="MeshObjectSerializable" Collapsed="true">
+    <Position X="10.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>hAAAAAAAAAAAAAAAAAQAAAAAAAAQAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Assets\Scripts\SaveLoad.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="FaceSerializable" Collapsed="true">
+    <Position X="10.5" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\SaveLoad.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="VertexSerializable" Collapsed="true">
+    <Position X="10.5" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAIAAAAAAAAAAAABgAQAAAAA=</HashCode>
+      <FileName>Assets\Scripts\SaveLoad.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="ISelectable">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MeshObject.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
