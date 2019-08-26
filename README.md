@@ -14,7 +14,7 @@ There are two main modes for selection/editing, **Vertex** and **Face**. These c
 ## Functions:
 - Select points [vertices/faces] (Left click, Shift + Left click to select multiple)
 - Select/Deselect all ([A] key)
-- Extrude selected faces (Extrude tool or [E] key)
+- Extrude selected faces (Extrude tool). In vertex selection mode, individual vertices/edges can be extruded with the [E] key.
 - Create a face connecting the selected vertices ('Face from Verts' button or [F] key)
 - Look at selected ('Look At' button or [Home] key)
 - Box select ('Box Select' button or [Alt+drag])
