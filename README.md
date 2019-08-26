@@ -12,7 +12,10 @@ There are two main modes for selection/editing, **Vertex** and **Face**. These c
 - In **Face** mode, parts of the mesh are selected by faces. As well as translation/rotation/scaling, **Face** mode allows the user to extrude faces using the extrude tool.
 
 ## Functions:
+- Select points [vertices/faces] (Left click, Shift + Left click to select multiple)
+- Select/Deselect all ([A] key)
 - Extrude selected faces (Extrude tool or [E] key)
+- Create a face connecting the selected vertices ('Face from Verts' button or [F] key)
 - Look at selected ('Look At' button or [Home] key)
 - Box select ('Box Select' button or [Alt+drag])
 - Select linked vertices ('Delete Points' button or [Del] key)
