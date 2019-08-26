@@ -1,0 +1,17 @@
+{
+"companyName": "DefaultCompany",
+"productName": "Modellr",
+"productVersion": "0.1",
+"dataUrl": "WebGL.data.unityweb",
+"asmCodeUrl": "WebGL.asm.code.unityweb",
+"asmMemoryUrl": "WebGL.asm.memory.unityweb",
+"asmFrameworkUrl": "WebGL.asm.framework.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Light",
+"backgroundColor": "#FFFFFF",
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.2.2f1"
+}
