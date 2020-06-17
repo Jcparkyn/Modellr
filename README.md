@@ -1,6 +1,6 @@
 # Modellr
 
-Modellr is a basic 3D modelling program created using Unity and C#.
+Modellr is a basic 3D modelling program created using Unity and C#. Try it out [here](https://jcparkyn.github.io/Modellr).
 
 ## How to Use:
 To move the view around, right-click drag (or middlemouse) to rotate the view.
